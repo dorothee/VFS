@@ -5,7 +5,8 @@ public class Circle {
 	/**
 	 * The center Point of the Circle
 	 */
-	private Point center;
+	private Point center; //also here, create public get() and set() methods for center
+						  //it will be used by the intersection function	
 	/**
 	 * The radius of the Circle
 	 */
@@ -36,6 +37,8 @@ public class Circle {
 	 */
 	public float getArea(){
 		return this.radius * this.radius * pi; //how to  write (this.radius)^2?
+		//you can use Math.pow(this.radius, 2); 
+		
 	}
 
     public float getLength(){

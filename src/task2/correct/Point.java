@@ -4,7 +4,10 @@ public class Point {
 	/**
 	 * Coordinates of the Point
 	 */
-	private float x;	
+	private float x;	//create public get() and set() methods for these fields
+						//as they need to be accessed (to retrieve value and set value)
+						//by functions outside the class
+						//and here they are private (which is good)
 	private float y;
 	/**
 	 * Constructor
