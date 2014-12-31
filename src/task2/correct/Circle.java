@@ -1,22 +1,38 @@
 package task2.correct;
 
 public class Circle {
-	static final float pi = (float) 3.14;
+	
+	private static final float pi = (float) 3.14;
 	/**
 	 * The center Point of the Circle
 	 */
-	private Point center; //also here, create public get() and set() methods for center
-						  //it will be used by the intersection function	
+	private Point center; 	
+	/*get() and set() methods for center*/
+	public void setCenter(Point c){
+		center = c;
+	}	
+	public Point getCenter(){
+		return center;
+	}
+	
 	/**
 	 * The radius of the Circle
 	 */
 	private float radius;
+	/*get() and set() methods for radius*/
+	public void setRadius(float r){
+		radius = r;
+	}	
+	public float getRadius(){
+		return radius;
+	}
 	/**
 	 * First constructor for the Circle
 	 * @param center of the Circle as a Point object
 	 * @param length of radius of Circle
 	 */
 	public Circle(Point center, float radius){
+		if (!(radius > 0)) throw new IllegalArgumentException("Radius must be positive");
 		this.center = center;
 		this.radius = radius;
 	}
@@ -36,13 +52,10 @@ public class Circle {
 	 * @return 
 	 */
 	public float getArea(){
-		return this.radius * this.radius * pi; //how to  write (this.radius)^2?
-		//you can use Math.pow(this.radius, 2); 
-		
+		return (float) Math.pow(this.radius, 2);  		
 	}
 
     public float getLength(){
-    	return 2 * pi * this.radius;
-    	
+    	return 2 * pi * this.radius;    	
     }	
 }
