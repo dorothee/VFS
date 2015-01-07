@@ -9,7 +9,12 @@ public class Intersection {
 
 		float radius1 = one.getRadius();
 		float radius2 = two.getRadius();
-		float x1; //= //????
+		/* here you can add the same type of function to access x and y from the center of the Circle
+		 * so you have class Circle which has Point center
+		 * 		make a function in Circle to retrieve first the center: getCenter() -- should return an object of type Point
+		 * 		retrieve the center: Point center = one.getCenter();
+		 * 		call the function getX() from the object center */
+		float x1; //= //???? 
 		float y1; //= //??
 		float x2; //= ///??
 		float y2; //= //???
@@ -18,9 +23,11 @@ public class Intersection {
 		float d = sqrt(sqr(one.getY() - two.y) + sqr(one.x - two.x)); //not working, how??????
 																	// the same problem as above
 		
+		
 		//calculating "d1"
 		float d1 = ((float) Math.pow(radius1, 2) - (float) Math.pow(radius2, 2) + (float) Math.pow(d, 2))/(2*d);
 		
+		/* sqrt is also from Math lib, so call Math.sqrt */
 		//calculating h = 1/2 a	
 		float h = sqrt((float) Math.pow(radius1, 2) - (float) Math.pow(d1, 2));
 		
@@ -56,5 +63,13 @@ public class Intersection {
 		}
 	}
 	// how to return values? because there will be two, one or 0 points
+	
+	/* you have two options:
+	 * 	1. make two fields in the class Intersection: Point A, B 
+	 * 		and make this function return an Intersection object (instead of Point);
+	 * 		if you have no points return null 
+	 *  2. return an array of Point: Point[] 
+	 *  	if you have no intersection return null 
+	 *  make sure in the Test function to test if you return null --- and print that the circles don't intersect */
 	
 }
