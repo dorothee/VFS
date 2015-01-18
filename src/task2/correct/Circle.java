@@ -26,6 +26,7 @@ public class Circle {
 	public float getRadius(){
 		return radius;
 	}
+
 	/**
 	 * First constructor for the Circle
 	 * @param center of the Circle as a Point object
