@@ -1,5 +1,5 @@
 package project;
 
-public enum NodeType {
+public enum EntryType {
 	ROOT, DIRECTORY, FILE
 }

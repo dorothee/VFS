@@ -7,5 +7,5 @@ package project;
 public interface IEntry {
 	
 	public String name = "";
-	public NodeType type = null;
+	public EntryType type = null;
 }
