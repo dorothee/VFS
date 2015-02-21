@@ -2,12 +2,13 @@ package project;
 
 public interface ICommand {
 	
-	void createDirectory();
-	void deleteDirectory();
+	void createDirectory(Node tree, String[] nodes);
+	void deleteDirectory(Node tree, String[] nodes);
+	//void listDirectory();
 	void createFile();
 	void deleteFile();
-	//void write();
-	//void read();
-	//void execute();
-	//void ls();
+	//void writeFile();
+	//void readFile();
+	//void executeFile();
+
 }

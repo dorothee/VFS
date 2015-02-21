@@ -3,12 +3,15 @@ package project;
 public class FileCommand implements ICommand{
 	
 	@Override
-	public void createDirectory(){
+	public void createDirectory(Node tree, String[] nodes){
+
+
+		
 		
 	}
 	
 	@Override
-	public void deleteDirectory(){
+	public void deleteDirectory(Node tree, String[] nodes){
 		
 	}
 	
