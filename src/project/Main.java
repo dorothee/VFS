@@ -22,6 +22,7 @@ public class Main {
 		
 		Root rootFile = new Root();
 		Node tree = new Node(rootFile, new List<Node>());
+		// missing: assigning type Root to rootFile
 	
 		boolean user = true;
 		while(user == true){
