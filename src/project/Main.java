@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * The main class that will be used to 
@@ -19,7 +20,28 @@ import java.util.LinkedList;
 public class Main {
 	
 	public static void printTree(Node tree){
-		//TODO - implement DFS/BFS		
+		//TODO - implement DFS/BFS
+		
+		//try it in the Main -- printTree(createDummyTree())		
+	}
+	
+	private static Node createDummyTree(){
+		Node tree = new Node(new Root(), new LinkedList<Node>());
+		List<Node> childrenLevel1 = new LinkedList<Node>();
+		List<Node> childrenLevel2 = new LinkedList<Node>();
+		List<Node> childrenLevel3 = new LinkedList<Node>();
+		
+		childrenLevel1.add(new Node(new Directory("A"), childrenLevel2));
+		childrenLevel1.add(new Node(new Directory("E"), new LinkedList<Node>()));
+		
+		childrenLevel2.add(new Node(new Directory("B"), childrenLevel3));
+		
+		childrenLevel3.add(new Node(new Directory("C"), new LinkedList<Node>()));
+		childrenLevel3.add(new Node(new Directory("D"), new LinkedList<Node>()));
+		
+		tree.setChildren(childrenLevel1);
+		
+		return tree;
 	}
 
 	public static void main(String[] args){
