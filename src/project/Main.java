@@ -29,9 +29,14 @@ public class Main {
 	public static void main(String[] args){
 		
 		Root rootFile = new Root();
+<<<<<<< HEAD
 		/* Before using it, you need to define any constructor for Node ---> See class Node*/
 		/* Here you cannot use new List(), because List is an interface -- so you need to use a class that implements it, for example LinkedList*/
 		Node tree = new Node(rootFile, new LinkedList<Node>());
+=======
+		Node tree = new Node(rootFile, new List<Node>());
+		// missing: assigning type Root to rootFile
+>>>>>>> 748d426a6ad9ff5b00cca53cecb3b39227f478ed
 	
 		/* We also need a variable to execute FileCommands */
 		FileCommand fileCommand = new FileCommand();
