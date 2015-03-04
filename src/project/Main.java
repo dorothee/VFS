@@ -19,24 +19,20 @@ import java.util.LinkedList;
 public class Main {
 	
 	public static void printTree(Node tree){
-
-		System.out.println("/" + tree.getNodeEntry().name);
-		for (Node child : tree.getChildren())
-			printTree(child);
-		
+		//TODO - implement DFS/BFS		
 	}
 
 	public static void main(String[] args){
 		
 		Root rootFile = new Root();
-<<<<<<< HEAD
+
 		/* Before using it, you need to define any constructor for Node ---> See class Node*/
 		/* Here you cannot use new List(), because List is an interface -- so you need to use a class that implements it, for example LinkedList*/
 		Node tree = new Node(rootFile, new LinkedList<Node>());
-=======
-		Node tree = new Node(rootFile, new List<Node>());
+
+		
 		// missing: assigning type Root to rootFile
->>>>>>> 748d426a6ad9ff5b00cca53cecb3b39227f478ed
+
 	
 		/* We also need a variable to execute FileCommands */
 		FileCommand fileCommand = new FileCommand();
@@ -93,7 +89,8 @@ public class Main {
 		    			break; //return from the loop
 		    		}
 		    		/* if the path starts with the root look in the next directories */
-		    		tree = fileCommand.createDirectory(tree, Arrays.copyOfRange(nodes, 1, nodes.length));
+		    		//tree = fileCommand.createDirectory(tree, Arrays.copyOfRange(nodes, 1, nodes.length));
+		    		fileCommand.createDirectory(tree, Arrays.copyOfRange(nodes, 1, nodes.length));
 		    		//nodes = Arrays.copyOfRange(nodes, 1, nodes.length);
 		    		//for (String n : nodes){
 		    		//	if (!tree.containsChild(n))
