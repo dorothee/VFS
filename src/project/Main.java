@@ -1,10 +1,10 @@
 package project;
 
-import java.awt.List;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.LinkedList;
 
 /**
  * The main class that will be used to 
@@ -17,12 +17,25 @@ import java.util.Arrays;
  */
 
 public class Main {
+	
+	public static void printTree(Node tree){
+
+		System.out.println("/" + tree.getNodeEntry().name);
+		for (Node child : tree.getChildren())
+			printTree(child);
+		
+	}
 
 	public static void main(String[] args){
 		
 		Root rootFile = new Root();
-		Node tree = new Node(rootFile, new List<Node>());
+		/* Before using it, you need to define any constructor for Node ---> See class Node*/
+		/* Here you cannot use new List(), because List is an interface -- so you need to use a class that implements it, for example LinkedList*/
+		Node tree = new Node(rootFile, new LinkedList<Node>());
 	
+		/* We also need a variable to execute FileCommands */
+		FileCommand fileCommand = new FileCommand();
+		
 		boolean user = true;
 		while(user == true){
 				
@@ -54,24 +67,45 @@ public class Main {
 
 		    String command = tokens[0]; 
 		    String type = tokens[1]; 
-		    String [] nodes = tokens[2].split("/");
+		    String [] nodes = tokens[2].split("/"); // here after the split your nodes will be: [, root, A], so we need to remove the first empty element
+		    if (nodes.length > 0)
+		    	nodes = Arrays.copyOfRange(nodes, 1, nodes.length);
 		    int len = tokens.length;
+		    //Define the variable content outside of the if, otherwise you cannot use it later on
+		    String content = null;
 		    if(len==4){
-		    	String content = tokens[3];
+		    	content = tokens[3];
 		    }
-
-		if(type=="directory"){
-		    	if(command=="create" && len==3){
+		    
+		    /*the strings you cannot compare like this, you need to use matches*/
+		if(type.matches("directory")){
+		    	if(command.matches("create") && len==3){
 		    		//createDirectory
+		    		/* check if the path starts with root */
+		    		if (nodes.length == 0 || !nodes[0].matches("root")){
+		    			System.err.println("Not in the root file system");
+		    			user = false;
+		    			break; //return from the loop
+		    		}
+		    		/* if the path starts with the root look in the next directories */
+		    		tree = fileCommand.createDirectory(tree, Arrays.copyOfRange(nodes, 1, nodes.length));
+		    		//nodes = Arrays.copyOfRange(nodes, 1, nodes.length);
+		    		//for (String n : nodes){
+		    		//	if (!tree.containsChild(n))
+		    				
+		    		//}
+		    		printTree(tree);
+		    			
 		    	}
-		    	else if(command=="delete" && len==3){;
+		    	else if(command.matches("delete") && len==3){;
 		    		//deleteDirectory
 		    	}
-		    	else if(command=="ls" && len==3){;
+		    	else if(command.matches("ls") && len==3){;
 	    			//listDirectory
 		    	}
 	    	}
-
+		/*the strings you cannot compare like this, you need to use matches -- fill the same*/
+		//TODO
 		else if(type=="file"){
 		    	if(command=="create"){
 		    		//createFile

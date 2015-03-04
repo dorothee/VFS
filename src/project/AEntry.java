@@ -1,10 +1,10 @@
 package project;
 /**
- * Interface used for the file and directory objects
+ * Abstract class used for the file and directory objects
  * @author mariuca
  *
  */
-public interface IEntry {
+public abstract class AEntry {
 	
 	public String name = "";
 	public EntryType type = null;

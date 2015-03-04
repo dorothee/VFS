@@ -1,14 +1,17 @@
 package project;
 
+import java.util.List;
+
 public interface ICommand {
 	
-	void createDirectory(Node tree, String[] nodes);
-	void deleteDirectory(Node tree, String[] nodes);
+	Node createDirectory(Node tree, String[] directoryPath);
+	public Node deleteDirectory(Node tree, String directoryName);
 	//void listDirectory();
-	void createFile();
-	void deleteFile();
+	public Node createFile(Node tree, File file);
+	public Node deleteFile(Node tree, String fileName);
 	//void writeFile();
 	//void readFile();
 	//void executeFile();
+	
 
 }
